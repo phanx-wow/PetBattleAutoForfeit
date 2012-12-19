@@ -7,6 +7,15 @@ local L = {
 	MIN_LEVEL_DIFF = "Minimum Level Gain",
 	MIN_LEVEL_DIFF_TIP = "Pets at least this many levels higher than yours are considered upgrades at the same quality.",
 }
+if GetLocale() == "frFR" then
+	-- Translated by L0relei
+	L.ENABLE_TIP = "Vous pourriez vouloir désactiver temporairement l'addon tandis que vous montez vos mascottes en niveau."
+	L.MIN_QUALITY = "Qualité minimum"
+	L.MIN_QUALITY_TIP = "Les mascottes en-dessous de cette qualité ne sont jamais considérées comme des améliorations."
+	L.MIN_LEVEL_DIFF = "Gain de niveau minimum"
+	L.MIN_LEVEL_DIFF_TIP = "Les mascottes qui ont au moins ce nombre de niveaux de plus que les vôtres sont considérées comme des améliorations à qualité égale."
+end
+
 
 local options = CreateFrame("Frame", ADDON.."Options", InterfaceOptionsFramePanelContainer)
 options.name = GetAddOnMetadata(ADDON, "Title") or ADDON
