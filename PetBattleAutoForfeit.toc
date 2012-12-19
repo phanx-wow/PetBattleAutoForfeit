@@ -1,12 +1,13 @@
 ## Interface: 50100
 ## Version: 5.1.0.wowi:revision
 
-## Title: Pet Battle Auto Forfeit
+## Title: PetBattleAutoForfeit
 ## Notes: Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
+## Notes-frFR: Propose de déclarer forfait immédiatement lorsque vous entrez dans un combat de mascottes où il n'y a pas d'améliorations disponibles.
 ## Author: Phanx
 ## X-Email: addons@phanx.net
 ## X-CompatibleLocales: deDE, enUS, esES, esMX, frFR, itIT, ptBR, koKR, ruRU, zhCN, zhTW
-## X-Localizations: enUS
+## X-Localizations: enUS, frFR
 ## X-Website: http://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
 ## X-Curse-Project-Name: petbattleautoforfeit
 ## X-WoWI-ID: 21978
