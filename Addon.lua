@@ -216,7 +216,8 @@ do
 			PetJournal:RegisterEvent(event)
 		end
 		if LibStub and LibStub("LibPetJournal-2.0", true) then
-			LibStub("LibPetJournal-2.0").event_frame:UnregisterEvent(event)
+			local event_frame = LibStub("LibPetJournal-2.0").event_frame
+			event_frame:RegisterEvent(event)
 		end
 
 		--print("Done")
