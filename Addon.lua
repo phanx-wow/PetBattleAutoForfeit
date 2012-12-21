@@ -12,19 +12,25 @@
 
 local ADDON = ...
 
-local CLICK_TEXT = "|cffff9900No upgrades available!|r|n|nClick anywhere to forfeit.|nRight-click to continue the battle anyway."
-if GetLocale() == "frFR" then
+local NO_UPGRADES_AVAILABLE = "No upgrades available!"
+local CLICK_TO_FORFEIT = "Click anywhere to forfeit.|nRight-click to continue the battle anyway."
+if GetLocale():match("^es") then
+	NO_UPGRADES_AVAILABLE = "No hay mejoras disponibles!"
+	CLICK_TO_FORFEIT = "Clic en cualquier parte para abandonar.|nClick derecho para continuar el duelo sin embargo."
+
+elseif GetLocale() == "frFR" then
 	-- Translated by L0relei
-	CLICK_TEXT = "|cffff9900Pas d'améliorations disponibles !|r|n|nCliquez n'importe où pour déclarer forfait.|nCliquez droit pour continuer quand même le combat."
+	NO_UPGRADES_AVAILABLE = "Pas d'améliorations disponibles !"
+	CLICK_TO_FORFEIT = "Cliquez n'importe où pour déclarer forfait.|nCliquez droit pour continuer quand même le combat."
 end
 
 ------------------------------------------------------------------------
 
 local petLevel, petQuality = {}, {}
 
-PBAF_ENABLE = true
-PBAF_MIN_QUALITY = 3
-PBAF_MIN_LEVEL_DIFF = 1
+local SPECIES_NOT_CAPTURABLE = {
+	[52] = true, -- Ancona Chicken
+}
 
 ------------------------------------------------------------------------
 
@@ -38,9 +44,14 @@ f.bg = f:CreateTexture(nil, "BACKGROUND")
 f.bg:SetAllPoints(true)
 f.bg:SetTexture(0, 0, 0, 0.5)
 
-f.text = f:CreateFontString(nil, "OVERLAY", "PVPInfoTextFont")
-f.text:SetPoint("CENTER")
-f.text:SetText(CLICK_TEXT)
+f.text1 = f:CreateFontString(nil, "OVERLAY", "SubZoneTextFont")
+f.text1:SetPoint("BOTTOM", f, "CENTER", 0, 24)
+f.text1:SetTextColor(1, 0.7, 0)
+f.text1:SetText(NO_UPGRADES_AVAILABLE)
+
+f.text2 = f:CreateFontString(nil, "OVERLAY", "PVPInfoTextFont")
+f.text2:SetPoint("TOP", f, "CENTER", 0, 0)
+f.text2:SetText(CLICK_TO_FORFEIT)
 
 f:SetScript("OnClick", function(self, button)
 	if button == "LeftButton" then
@@ -61,18 +72,22 @@ f:SetScript("OnEvent", function(self, event)
 		local upgrade
 		for i = 1, C_PetBattles.GetNumPets(LE_BATTLE_PET_ENEMY) do
 			local species = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
-			local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
-			local level = C_PetBattles.GetLevel(LE_BATTLE_PET_ENEMY, i)
-			if quality >= PBAF_MIN_QUALITY then
-				if not petQuality[species] then
-					upgrade = true
-					break
-				elseif quality > petQuality[species] then
-					upgrade = true
-					break
-				elseif quality == petQuality[species] and level - PBAF_MIN_LEVEL_DIFF >= petLevel[species] then
-					upgrade = true
-					break
+			if not SPECIES_NOT_CAPTURABLE[species] then
+				local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
+				if quality >= PBAF_MIN_QUALITY then
+					if not petQuality[species] then
+						upgrade = true
+						break
+					elseif quality > petQuality[species] then
+						upgrade = true
+						break
+					elseif quality == petQuality[species] then
+						local level = C_PetBattles.GetLevel(LE_BATTLE_PET_ENEMY, i)
+						if level - PBAF_MIN_LEVEL_DIFF >= petLevel[species] then
+							upgrade = true
+							break
+						end
+					end
 				end
 			end
 		end
@@ -89,7 +104,6 @@ do
 	-- IsFiltered returns the opposite value you want to send to SetFilter...
 	-- Changing any filter fires the update event...
 	-- Filtering changes the API return values...
-	-- TOO MANY DRUGS. STOP IT. FUCKING COKEHEADS.
 
 	local updating
 
@@ -214,6 +228,9 @@ do
 		self:RegisterEvent(event)
 		if PetJournal then
 			PetJournal:RegisterEvent(event)
+			if PetJournal:IsShown() then
+				PetJournal:GetScript("OnEvent")(PetJournal, event)
+			end
 		end
 		if LibStub and LibStub("LibPetJournal-2.0", true) then
 			local event_frame = LibStub("LibPetJournal-2.0").event_frame
@@ -224,3 +241,10 @@ do
 		updating = nil
 	end
 end
+
+------------------------------------------------------------------------
+-- Defaults, overridden at ADDON_LOADED
+
+PBAF_ENABLE = true
+PBAF_MIN_QUALITY = 3
+PBAF_MIN_LEVEL_DIFF = 1
