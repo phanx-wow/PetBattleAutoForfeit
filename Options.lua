@@ -7,7 +7,14 @@ local L = {
 	MIN_LEVEL_DIFF = "Minimum Level Gain",
 	MIN_LEVEL_DIFF_TIP = "Pets at least this many levels higher than yours are considered upgrades at the same quality.",
 }
-if GetLocale() == "frFR" then
+if GetLocale():match("^es") then
+	L.ENABLE_TIP = "Puedes desear desactivar temporalmente el addon mientras levantas el nivel de tus mascotas de combate."
+	L.MIN_QUALITY = "Calidad mínima"
+	L.MIN_QUALITY_TIP = "Mascotas debajo de esta calidad nunca se consideran mejoras."
+	L.MIN_LEVEL_DIFF = "Ganancia de nivel mínimo"
+	L.MIN_LEVEL_DIFF_TIP = "Mascotas con la misma calidad que los tuyos se consideran mejoras si son al menos estos niveles muchos más altos."
+
+elseif GetLocale() == "frFR" then
 	-- Translated by L0relei
 	L.ENABLE_TIP = "Vous pourriez vouloir désactiver temporairement l'addon tandis que vous montez vos mascottes en niveau."
 	L.MIN_QUALITY = "Qualité minimum"
