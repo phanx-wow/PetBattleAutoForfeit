@@ -29,7 +29,7 @@
 
   BetterBattlePetTooltip is compatible with all game localizations.
 
-  The options are translated into English and French.
+  The options are translated into English, Spanish, and French.
 
   If you have translations for another language, post a comment on
   the WoWInterface download page.

@@ -7,7 +7,7 @@
 ## Author: Phanx
 ## X-Email: addons@phanx.net
 ## X-CompatibleLocales: deDE, enUS, esES, esMX, frFR, itIT, ptBR, koKR, ruRU, zhCN, zhTW
-## X-Localizations: enUS, frFR
+## X-Localizations: enUS, esES, esMX, frFR
 ## X-Website: http://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
 ## X-Curse-Project-Name: petbattleautoforfeit
 ## X-WoWI-ID: 21978
