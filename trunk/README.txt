@@ -1,7 +1,7 @@
 
   PetBattleAutoForfeit
   A World of Warcraft user interface addon
-  Copyright (c) 2012 Phanx
+  Copyright (c) 2012-2013 Phanx
   http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit.html
   http://www.curse.com/addons/wow/betterbattlepettooltip
 
