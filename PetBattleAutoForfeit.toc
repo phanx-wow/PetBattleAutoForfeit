@@ -18,6 +18,5 @@
 ## X-Curse-Project-Name: petbattleautoforfeit
 ## X-WoWI-ID: 21978
 
-
 Addon.lua
 Options.lua
