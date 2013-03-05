@@ -1,5 +1,5 @@
 ## Interface: 50100
-## SavedVariables: PBAF_ENABLE, PBAF_MIN_QUALITY, PBAF_MIN_LEVEL_DIFF
+## Version: 5.1.0.wowi:revision
 
 ## Title: PetBattleAutoForfeit
 ## Notes: Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
@@ -7,7 +7,6 @@
 ## Notes-esMX: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-frFR: Propose de déclarer forfait immédiatement lorsque vous entrez dans un combat de mascottes où il n'y a pas d'améliorations disponibles.
 
-## Version: 5.1.0.wowi:revision
 ## Author: Phanx
 ## X-Email: addons@phanx.net
 ## X-Copyright: Copyright (c) 2012-2013 Phanx. All rights reserved.
@@ -17,6 +16,9 @@
 ## X-Website: http://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
 ## X-Curse-Project-Name: petbattleautoforfeit
 ## X-WoWI-ID: 21978
+
+## OptionalDependencies: LibPetScanner-1.0
+## SavedVariables: PBAF_ENABLE, PBAF_MIN_QUALITY, PBAF_MIN_LEVEL_DIFF
 
 Addon.lua
 Options.lua
