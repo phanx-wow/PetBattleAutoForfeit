@@ -1,5 +1,5 @@
-## Interface: 50100
-## Version: 5.1.0.wowi:revision
+## Interface: 50200
+## Version: 5.2.0.wowi:revision
 
 ## Title: PetBattleAutoForfeit
 ## Notes: Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
@@ -17,8 +17,12 @@
 ## X-Curse-Project-Name: petbattleautoforfeit
 ## X-WoWI-ID: 21978
 
-## OptionalDependencies: LibPetScanner-1.0
+## OptionalDependencies: LibPetJournal-2.0
 ## SavedVariables: PBAF_ENABLE, PBAF_MIN_QUALITY, PBAF_MIN_LEVEL_DIFF
+
+LibStub\LibStub.lua
+CallbackHandler-1.0\CallbackHandler-1.0.lua
+LibPetJournal-2.0\LibPetJournal-2.0.lua
 
 Addon.lua
 Options.lua
