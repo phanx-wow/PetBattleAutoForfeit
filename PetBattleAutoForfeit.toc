@@ -24,5 +24,6 @@ LibStub\LibStub.lua
 CallbackHandler-1.0\CallbackHandler-1.0.lua
 LibPetJournal-2.0\LibPetJournal-2.0.lua
 
+Localization.lua
 Addon.lua
 Options.lua
