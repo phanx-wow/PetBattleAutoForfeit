@@ -27,11 +27,11 @@ L.ClickForfeit = "Click anywhere to forfeit.|nRight-click to continue the battle
 ------------------------------------------------------------------------
 
 if GetLocale():match("^es") then
-	L.Enable_Hint = "Puedes desear desactivar temporalmente el addon mientras levantas el nivel de tus mascotas de combate."
+	L.Enable_Hint = "Puedes desear desactivar temporalmente el addon mientras levantar el nivel de tus mascotas de combate."
 	L.MinQuality = "Calidad mínima"
 	L.MinQuality_Hint = "Mascotas debajo de esta calidad nunca se consideran mejoras."
-	L.MinLevelUp = "Ganancia de nivel mínimo"
-	L.MinLevelUp_Hint = "Mascotas con la misma calidad que los tuyos se consideran mejoras si son al menos estos niveles muchos más altos."
+	L.MinLevelUp = "Ganancia mínimo de nivel"
+	L.MinLevelUp_Hint = "Mascotas con la misma calidad que los tuyos se consideran mejoras si son al menos estos niveles más altos."
 	L.NoUpgrades = "No hay mejoras disponibles!"
 	L.ClickForfeit = "Clic en cualquier parte para abandonar el duelo.|nClick derecho para continuar sin embargo el duelo."
 
