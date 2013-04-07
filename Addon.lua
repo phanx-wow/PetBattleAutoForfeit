@@ -45,60 +45,66 @@ end)
 
 local PetJournal
 
+local function IsUpgrade(i)
+	local species = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
+	local _, _, _, _, _, _, wild = C_PetJournal.GetPetInfoBySpeciesID(species)
+	if wild then
+		local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
+		if quality >= PBAF_MIN_QUALITY then
+			local bestQuality, bestLevel = 0, 0
+			for _, petID in PetJournal:IteratePetIDs() do
+				local petSpecies, _, petLevel = C_PetJournal.GetPetInfoByPetID(petID)
+				if petSpecies == species then
+					local _, _, _, _, petQuality = C_PetJournal.GetPetStats(petID)
+					if petQuality >= bestQuality then
+						bestQuality = petQuality
+						if petLevel >= 20 then
+							petLevel = petLevel - 2
+						elseif petLevel >= 16 then
+							petLevel = petLevel - 1
+						end
+						bestLevel = max(bestLevel, petLevel)
+					end
+				end
+			end
+			if bestQuality == 0 then
+				return true
+			elseif quality > bestQuality then
+				return true
+			elseif quality == bestQuality then
+				local level = C_PetBattles.GetLevel(LE_BATTLE_PET_ENEMY, i)
+				if level - PBAF_MIN_LEVEL_DIFF >= bestLevel then
+					return true
+				end
+			end
+		end
+	end
+end
+
 f:RegisterEvent("PET_BATTLE_OPENING_START")
 f:SetScript("OnEvent", function(self, event, name)
 	if not PetJournal then
 		PetJournal = LibStub("LibPetJournal-2.0")
 	end
-
-	if PBAF_ENABLE and C_PetBattles.IsWildBattle() then
-		local upgrade
-		for i = 1, C_PetBattles.GetNumPets(LE_BATTLE_PET_ENEMY) do
-
-			local species = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
-			local _, _, _, _, _, _, wild = C_PetJournal.GetPetInfoBySpeciesID(species)
-			if wild then
-
-				local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
-				if quality >= PBAF_MIN_QUALITY then
-
-					local bestQuality, bestLevel = 0, 0
-					for _, petID in PetJournal:IteratePetIDs() do
-
-						local petSpecies, _, petLevel = C_PetJournal.GetPetInfoByPetID(petID)
-						if petSpecies == species then
-
-							local _, _, _, _, petQuality = C_PetJournal.GetPetStats(petID)
-							if petQuality >= bestQuality then
-								bestQuality = petQuality
-								bestLevel = max(bestLevel, petLevel)
-							end
-						end
-					end
-
-					if bestQuality == 0 then
-						upgrade = true
-						break
-					elseif quality > bestQuality then
-						upgrade = true
-						break
-					elseif quality == bestQuality then
-
-						local level = C_PetBattles.GetLevel(LE_BATTLE_PET_ENEMY, i)
-						if level - PBAF_MIN_LEVEL_DIFF >= bestLevel then
-							upgrade = true
-							break
-						end
-					end
-				end
-			end
-		end
-		if not upgrade then
-			self:Show()
-		end
+	if self.HookForfeitButton then
+		self:HookForfeitButton()
+	end
+	if self.HookUnitFrames then
+		self:HookUnitFrames()
 	end
 
-	if not self.upgradedForfeitButton and PetBattleFrame and PetBattleFrame.BottomFrame and PetBattleFrame.BottomFrame.ForfeitButton then
+	if PBAF_ENABLE and C_PetBattles.IsWildBattle() then
+		for i = 1, C_PetBattles.GetNumPets(LE_BATTLE_PET_ENEMY) do
+			if IsUpgrade(i) then
+				return
+			end
+		end
+		self:Show()
+	end
+end)
+
+function f:HookForfeitButton()
+	if PetBattleFrame and PetBattleFrame.BottomFrame and PetBattleFrame.BottomFrame.ForfeitButton then
 		PetBattleFrame.BottomFrame.ForfeitButton:SetScript("OnClick", function(...)
 			if IsShiftKeyDown() then
 				C_PetBattles.ForfeitGame()
@@ -106,9 +112,29 @@ f:SetScript("OnEvent", function(self, event, name)
 				PetBattleForfeitButton_OnClick(...)
 			end
 		end)
-		self.upgradedForfeitButton = true
+		self.HookForfeitButton = nil
 	end
-end)
+end
+
+function f:HookUnitFrames()
+	if PetBattleUnitFrame_UpdateDisplay then
+		hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(this)
+			if not this.UpgradeIcon then
+				local UpgradeIcon = this:CreateTexture(nil, "OVERLAY")
+				UpgradeIcon:SetTexture("Interface\\ContainerFrame\\UI-Icon-QuestBang")
+				UpgradeIcon:SetAllPoints(this.Icon)
+				this.UpgradeIcon = UpgradeIcon
+			end
+			local owner, i = this.petOwner, this.petIndex
+			if owner == LE_BATTLE_PET_ENEMY and i and i <= C_PetBattles.GetNumPets(owner) and IsUpgrade(i) then
+				this.UpgradeIcon:Show()
+			else
+				this.UpgradeIcon:Hide()
+			end
+		end)
+		self.HookUnitFrames = nil
+	end
+end
 
 ------------------------------------------------------------------------
 
