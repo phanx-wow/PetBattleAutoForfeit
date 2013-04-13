@@ -47,36 +47,35 @@ local PetJournal
 
 local function IsUpgrade(i)
 	local species = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
-	local _, _, _, _, _, _, wild = C_PetJournal.GetPetInfoBySpeciesID(species)
-	if wild then
-		local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
-		if quality >= PBAF_MIN_QUALITY then
-			local bestQuality, bestLevel = 0, 0
-			for _, petID in PetJournal:IteratePetIDs() do
-				local petSpecies, _, petLevel = C_PetJournal.GetPetInfoByPetID(petID)
-				if petSpecies == species then
-					local _, _, _, _, petQuality = C_PetJournal.GetPetStats(petID)
-					if petQuality >= bestQuality then
-						bestQuality = petQuality
-						if petLevel >= 20 then
-							petLevel = petLevel - 2
-						elseif petLevel >= 16 then
-							petLevel = petLevel - 1
-						end
-						bestLevel = max(bestLevel, petLevel)
-					end
-				end
+	local name, _, _, _, _, _, wild = C_PetJournal.GetPetInfoBySpeciesID(species)
+	if not wild then return end
+
+	local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
+	if quality < PBAF_MIN_QUALITY then return end
+
+	local bestQuality, bestLevel = 0, 0
+	for _, petID in PetJournal:IteratePetIDs() do
+		local petSpecies, _, petLevel = C_PetJournal.GetPetInfoByPetID(petID)
+		if petSpecies == species then
+			local _, _, _, _, petQuality = C_PetJournal.GetPetStats(petID)
+			if petQuality >= bestQuality then
+				bestQuality = petQuality
+				bestLevel = max(bestLevel, petLevel)
 			end
-			if bestQuality == 0 then
-				return true
-			elseif quality > bestQuality then
-				return true
-			elseif quality == bestQuality then
-				local level = C_PetBattles.GetLevel(LE_BATTLE_PET_ENEMY, i)
-				if level - PBAF_MIN_LEVEL_DIFF >= bestLevel then
-					return true
-				end
-			end
+		end
+	end
+
+	if quality > bestQuality then
+		return true
+	elseif quality == bestQuality then
+		local level = C_PetBattles.GetLevel(LE_BATTLE_PET_ENEMY, i)
+		if level >= 20 then
+			level = level - 2
+		elseif level >= 16 then
+			level = level - 1
+		end
+		if (level - PBAF_MIN_LEVEL_DIFF) > bestLevel then
+			return true
 		end
 	end
 end
@@ -120,7 +119,8 @@ function f:HookUnitFrames()
 	if PetBattleUnitFrame_UpdateDisplay then
 		hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(this)
 			if not this.UpgradeIcon then
-				local UpgradeIcon = this:CreateTexture(nil, "OVERLAY")
+				local layer, level = this.Icon:GetDrawLayer()
+				local UpgradeIcon = this:CreateTexture(nil, layer, nil, level + 1)
 				UpgradeIcon:SetTexture("Interface\\ContainerFrame\\UI-Icon-QuestBang")
 				UpgradeIcon:SetAllPoints(this.Icon)
 				this.UpgradeIcon = UpgradeIcon
