@@ -85,12 +85,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if not PetJournal then
 		PetJournal = LibStub("LibPetJournal-2.0")
 	end
-	if self.HookForfeitButton then
-		self:HookForfeitButton()
-	end
-	if self.HookUnitFrames then
-		self:HookUnitFrames()
-	end
 
 	if PBAF_ENABLE and C_PetBattles.IsWildBattle() then
 		for i = 1, C_PetBattles.GetNumPets(LE_BATTLE_PET_ENEMY) do
@@ -102,39 +96,32 @@ f:SetScript("OnEvent", function(self, event, name)
 	end
 end)
 
-function f:HookForfeitButton()
-	if PetBattleFrame and PetBattleFrame.BottomFrame and PetBattleFrame.BottomFrame.ForfeitButton then
-		PetBattleFrame.BottomFrame.ForfeitButton:SetScript("OnClick", function(...)
-			if IsShiftKeyDown() then
-				C_PetBattles.ForfeitGame()
-			else
-				PetBattleForfeitButton_OnClick(...)
-			end
-		end)
-		self.HookForfeitButton = nil
+PetBattleFrame.BottomFrame.ForfeitButton:SetScript("OnClick", function(...)
+	if IsShiftKeyDown() then
+		C_PetBattles.ForfeitGame()
+	else
+		PetBattleForfeitButton_OnClick(...)
 	end
-end
+end)
 
-function f:HookUnitFrames()
-	if PetBattleUnitFrame_UpdateDisplay then
-		hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(this)
-			if not this.UpgradeIcon then
-				local layer, level = this.Icon:GetDrawLayer()
-				local UpgradeIcon = this:CreateTexture(nil, layer, nil, level + 1)
-				UpgradeIcon:SetTexture("Interface\\ContainerFrame\\UI-Icon-QuestBang")
-				UpgradeIcon:SetAllPoints(this.Icon)
-				this.UpgradeIcon = UpgradeIcon
-			end
-			local owner, i = this.petOwner, this.petIndex
-			if owner == LE_BATTLE_PET_ENEMY and i and i <= C_PetBattles.GetNumPets(owner) and IsUpgrade(i) then
-				this.UpgradeIcon:Show()
-			else
-				this.UpgradeIcon:Hide()
-			end
-		end)
-		self.HookUnitFrames = nil
+hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(this)
+	if not PetJournal then
+		PetJournal = LibStub("LibPetJournal-2.0")
 	end
-end
+	if not this.UpgradeIcon then
+		local layer, level = this.Icon:GetDrawLayer()
+		local UpgradeIcon = this:CreateTexture(nil, layer, nil, level + 1)
+		UpgradeIcon:SetTexture("Interface\\ContainerFrame\\UI-Icon-QuestBang")
+		UpgradeIcon:SetAllPoints(this.Icon)
+		this.UpgradeIcon = UpgradeIcon
+	end
+	local owner, i = this.petOwner, this.petIndex
+	if owner == LE_BATTLE_PET_ENEMY and i and i <= C_PetBattles.GetNumPets(owner) and IsUpgrade(i) then
+		this.UpgradeIcon:Show()
+	else
+		this.UpgradeIcon:Hide()
+	end
+end)
 
 ------------------------------------------------------------------------
 
