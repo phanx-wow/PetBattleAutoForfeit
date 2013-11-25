@@ -14,8 +14,8 @@ Description
 PetBattleAutoForfeit prompts for immediate forfeit when you enter a
 wild pet battle where none of the enemy pets are an upgrade for you.
 
-Left-click anywhere on the screen to forfeit. Right-click to continue
-the battle anyway.
+Left-click anywhere on the screen to forfeit.
+Right-click to continue the battle anyway.
 
 
 Usage
@@ -34,7 +34,7 @@ Language Support
 
 BetterBattlePetTooltip is compatible with all game localizations.
 
-The options are translated into English, Spanish, and French.
+The options are translated into English, Deutsch, Spanish, and French.
 
 If you have translations for another language, post a comment on
 the WoWInterface download page.
