@@ -25,7 +25,7 @@ L.NoUpgrades = "No upgrades available!"
 ------------------------------------------------------------------------
 if GetLocale() == "deDE" then
 
-	L.ClickForfeit = "Klicken irgendwo, um aufgeben.|nRechtsklicken, um den Kampf trotzdem fortzusetzen."
+	L.ClickForfeit = "Irgendwo klicken, um aufgeben.|nRechtsklicken, um den Kampf trotzdem fortzusetzen."
 	L.Enable_Hint = "Vielleicht möchten Sie das Addon vorübergehend deaktivieren, während Sie die Stufen Ihrer Kampfhaustiere zu erhöhen."
 	L.MinLevelUp = "Mindeststufenerhöhung"
 	L.MinLevelUp_Hint = "Kampfhaustiere wenigstens diese vielen Stufen höher als Ihre gelten als Verbesserungen, wenn sie mindestens die gleiche Stufe sind."
@@ -36,7 +36,7 @@ if GetLocale() == "deDE" then
 ------------------------------------------------------------------------
 elseif GetLocale():match("^es") then
 
-	L.ClickForfeit = "Clic en cualquier parte para abandonar el duelo.|nClick derecho para continuar sin embargo el duelo."
+	L.ClickForfeit = "Clic dondequiera para abandonar el duelo.|nClick derecho para continuar sin embargo el duelo."
 	L.Enable_Hint = "Puedes desear desactivar temporalmente el addon mientras levantar el nivel de tus mascotas de combate."
 	L.MinLevelUp = "Ganancia mínimo de nivel"
 	L.MinLevelUp_Hint = "Mascotas con la misma calidad que los tuyos se consideran mejoras si son al menos estos niveles más altos."
