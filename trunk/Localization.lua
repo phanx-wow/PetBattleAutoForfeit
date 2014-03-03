@@ -1,7 +1,7 @@
 --[[--------------------------------------------------------------------
 	PetBattleAutoForfeit
 	A World of Warcraft user interface addon
-	Copyright (c) 2012-2013 Phanx
+	Copyright (c) 2012-2014 Phanx
 
 	This addon is freely available, and its source code freely viewable,
 	but it is not "open source software" and you may not distribute it,
@@ -25,7 +25,7 @@ L.NoUpgrades = "No upgrades available!"
 ------------------------------------------------------------------------
 if GetLocale() == "deDE" then
 
-	L.ClickForfeit = "Irgendwo klicken, um aufgeben.|nRechtsklicken, um den Kampf trotzdem fortzusetzen."
+	L.ClickForfeit = "Irgendwo klicken, um aufzugeben.|nRechtsklicken, um den Kampf trotzdem fortzusetzen."
 	L.Enable_Hint = "Vielleicht möchten Sie das Addon vorübergehend deaktivieren, während Sie die Stufen Ihrer Kampfhaustiere zu erhöhen."
 	L.MinLevelUp = "Mindeststufenerhöhung"
 	L.MinLevelUp_Hint = "Kampfhaustiere wenigstens diese vielen Stufen höher als Ihre gelten als Verbesserungen, wenn sie mindestens die gleiche Stufe sind."
@@ -42,7 +42,7 @@ elseif GetLocale():match("^es") then
 	L.MinLevelUp_Hint = "Mascotas con la misma calidad que los tuyos se consideran mejoras si son al menos estos niveles más altos."
 	L.MinQuality = "Calidad mínima"
 	L.MinQuality_Hint = "Mascotas debajo de esta calidad nunca se consideran mejoras."
-	L.NoUpgrades = "No hay mejoras disponibles!"
+	L.NoUpgrades = "No hay ningunas mejoras disponibles!"
 
 ------------------------------------------------------------------------
 elseif GetLocale() == "frFR" then

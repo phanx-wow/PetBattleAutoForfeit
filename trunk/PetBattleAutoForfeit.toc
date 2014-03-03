@@ -3,7 +3,7 @@
 
 ## Title: PetBattleAutoForfeit
 ## Notes: Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
-## Notes-deDE: Vorschlagen, um sofort aufgeben, wenn der Haustierkampf ohne verfügbaren Verbesserungen beginnt.
+## Notes-deDE: Schlägt für die sofortige Aufgeben vor, wenn ein Haustierkampf ohne verfügbare Verbesserungen beginnt.
 ## Notes-esES: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-esMX: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-frFR: Propose de déclarer forfait immédiatement lorsque vous entrez dans un combat de mascottes où il n'y a pas d'améliorations disponibles.
@@ -11,10 +11,10 @@
 
 ## Author: Phanx
 ## X-Email: addons@phanx.net
-## X-Copyright: Copyright (c) 2012-2013 Phanx. All rights reserved.
+## X-Copyright: Copyright (c) 2012-2014 Phanx. All rights reserved.
 ## X-License: See the accompanying LICENSE file for details.
 ## X-CompatibleLocales: deDE, enUS, esES, esMX, frFR, itIT, ptBR, koKR, ruRU, zhCN, zhTW
-## X-Localizations: enUS, esES, esMX, frFR, ruRU
+## X-Localizations: deDE, enUS, esES, esMX, frFR, ruRU
 ## X-Website: http://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
 ## X-Curse-Project-Name: petbattleautoforfeit
 ## X-WoWI-ID: 21978
