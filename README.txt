@@ -3,8 +3,8 @@ PetBattleAutoForfeit
 ========================
 
 A World of Warcraft user interface addon
-Copyright (c) 2012-2013 Phanx
-http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit.html
+Copyright (c) 2012-2014 Phanx
+http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit
 http://www.curse.com/addons/wow/betterbattlepettooltip
 
 
@@ -32,9 +32,8 @@ must be to be considered an upgrade at the same quality.
 Language Support
 --------------------
 
-BetterBattlePetTooltip is compatible with all game localizations.
-
-The options are translated into English, Deutsch, Spanish, and French.
+Works in all game languages. Translated into English, German, Spanish,
+French, and Russian.
 
 If you have translations for another language, post a comment on
 the WoWInterface download page.
