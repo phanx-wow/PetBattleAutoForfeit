@@ -1,25 +1,22 @@
-
 PetBattleAutoForfeit
-========================
-
-A World of Warcraft user interface addon
-Copyright (c) 2012-2014 Phanx
-http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit
-http://www.curse.com/addons/wow/betterbattlepettooltip
-
-
-Description
----------------
+=======================
 
 PetBattleAutoForfeit prompts for immediate forfeit when you enter a
 wild pet battle where none of the enemy pets are an upgrade for you.
 
-Left-click anywhere on the screen to forfeit.
+Left-click anywhere on the screen to forfeit.  
 Right-click to continue the battle anyway.
 
 
-Usage
----------
+Download
+-----------
+
+http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit
+http://www.curse.com/addons/wow/betterbattlepettooltip
+
+
+Options
+----------
 
 Type “/pbaf” to open the options pane, or browse to it in the game’s
 Interface Options window.
@@ -29,24 +26,31 @@ are only interested in rares) and how many levels higher a wild pet
 must be to be considered an upgrade at the same quality.
 
 
-Language Support
---------------------
+Localization
+---------------
 
-Works in all game languages. Translated into English, German, Spanish,
-French, and Russian.
+Compatible with all localized game clients.
 
-If you have translations for another language, post a comment on
-the WoWInterface download page.
+Translated into English, Deutsch, Español, Français and Русский.
 
 
 Feedback
-------------
+-----------
 
-Post a comment on the WoWInterface download page.
+Post a ticket on either download site, or a comment on WoWInterface.
 
-If you need to contact me privately for some other reason, you can email
-me at <addons@phanx.net> or send a PM to Phanx on WoWInterface or Curse.
+If you are reporting a bug, please include directions I can follow to
+reproduce the bug, whether it still happens when all other addons are
+disabled, and the exact text of the related error message (if any) from 
+[BugSack](http://www.wowinterface.com/downloads/info5995-BugSack.html).
 
-Please *do not* use email or PMs to report bugs, request features, or
-ask for help with addons or code. I do not provide private support or
-tutoring of any kind. Post a comment, ticket, or forum thread instead!
+If you need to contact me privately, you can send me a private message
+on either download site, or email me at <addons@phanx.net>.
+
+
+License
+----------
+
+Copyright (c) 2012-2014 Phanx. All rights reserved.  
+See the accompanying LICENSE file for information about the conditions
+under which redistribution and modification may be allowed.
