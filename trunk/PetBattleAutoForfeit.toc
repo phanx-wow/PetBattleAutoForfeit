@@ -1,5 +1,5 @@
 ## Interface: 50400
-## Version: 5.4.7.wowi:revision
+## Version: 5.4.8.wowi:revision
 
 ## Title: PetBattleAutoForfeit
 ## Notes: Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
@@ -7,6 +7,7 @@
 ## Notes-esES: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-esMX: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-frFR: Propose de déclarer forfait immédiatement lorsque vous entrez dans un combat de mascottes où il n'y a pas d'améliorations disponibles.
+## Notes-deDE: Sugere que desistir imediatamente ao entrar numa batalha de mascote sem melhorias disponíveis.
 ## Notes-ruRU: Подсказка для немедленного отступления, когда начинается битва питомцев и нет доступных улучшений.
 
 ## Author: Phanx
@@ -14,7 +15,7 @@
 ## X-Copyright: Copyright (c) 2012-2014 Phanx. All rights reserved.
 ## X-License: See the accompanying LICENSE file for details.
 ## X-CompatibleLocales: deDE, enUS, esES, esMX, frFR, itIT, ptBR, koKR, ruRU, zhCN, zhTW
-## X-Localizations: deDE, enUS, esES, esMX, frFR, ruRU
+## X-Localizations: deDE, enUS, esES, esMX, frFR, ptBR, ruRU
 ## X-Website: http://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
 ## X-Curse-Project-Name: petbattleautoforfeit
 ## X-WoWI-ID: 21978

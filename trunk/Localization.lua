@@ -45,9 +45,8 @@ L.MinQuality_Tooltip = "Mascotas debajo de esta calidad nunca se consideran mejo
 L.NoUpgrades = "No hay ningunas mejoras disponibles!"
 
 ------------------------------------------------------------------------
-elseif GetLocale() == "frFR" then
+elseif GetLocale() == "frFR" then -- Translated by L0relei
 
--- Translated by L0relei
 L.ClickForfeit = "Cliquez n'importe où pour déclarer forfait.|nCliquez droit pour continuer quand même le combat."
 L.Enable_Tooltip = "Vous pourriez vouloir désactiver temporairement l'addon tandis que vous montez vos mascottes en niveau."
 L.MinLevelUp = "Gain de niveau minimum"
@@ -57,9 +56,19 @@ L.MinQuality_Tooltip = "Les mascottes en-dessous de cette qualité ne sont jamai
 L.NoUpgrades = "Pas d'améliorations disponibles !"
 
 ------------------------------------------------------------------------
-elseif GetLocale() == "ruRU" then
+elseif GetLocale() == "ptPT" then -- Translated by Ogadita
 
--- Translated by Wetxius
+L.ClickForfeit = "Clique em qualquer lugar para desistir.|nClique com botão direito para continuar a batalha."
+L.Enable_Hint = "Você pode desativar o addon temporariamente enquanto você está nivelando seus mascotes."
+L.MinLevelUp = "Ganhou o level minimo"
+L.MinLevelUp_Hint = "Mascotes com níveis mais elevados que o seu são consideradas atualizações e com a mesma qualidade."
+L.MinQuality = "Qualidade mínima"
+L.MinQuality_Hint = "Mascotes abaixo desse nivel nunca serão consideradas atualizações."
+L.NoUpgrades = "Não há atualizações disponíveis!"
+
+------------------------------------------------------------------------
+elseif GetLocale() == "ruRU" then -- Translated by Wetxius
+
 L.ClickForfeit = "Кликните где-нибудь, чтобы сдаться.|nПравый-клик для продолжения битвы."
 L.Enable_Tooltip = "Вы можете временно отключить аддон, пока вы повышаете уровень питомцев."
 L.MinLevelUp = "Минимальный получаемый уровень"
