@@ -11,8 +11,8 @@ Right-click to continue the battle anyway.
 Download
 -----------
 
-http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit
-http://www.curse.com/addons/wow/betterbattlepettooltip
+* http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit
+* http://www.curse.com/addons/wow/betterbattlepettooltip
 
 
 Options
@@ -29,9 +29,9 @@ must be to be considered an upgrade at the same quality.
 Localization
 ---------------
 
-Compatible with all localized game clients.
-
-Translated into English, Deutsch, Español, Français and Русский.
+Translated into English, Deutsch, Español, Français, Português and
+Русский. To add or update translations for any language, please see
+http://wow.curseforge.com/addons/petbattleautoforfeit/localization/
 
 
 Feedback
