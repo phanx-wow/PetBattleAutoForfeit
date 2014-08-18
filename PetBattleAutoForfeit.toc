@@ -7,7 +7,7 @@
 ## Notes-esES: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-esMX: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-frFR: Propose de déclarer forfait immédiatement lorsque vous entrez dans un combat de mascottes où il n'y a pas d'améliorations disponibles.
-## Notes-deDE: Sugere que desistir imediatamente ao entrar numa batalha de mascote sem melhorias disponíveis.
+## Notes-ptBR: Sugere que desistir imediatamente ao entrar numa batalha de mascote sem melhorias disponíveis.
 ## Notes-ruRU: Подсказка для немедленного отступления, когда начинается битва питомцев и нет доступных улучшений.
 
 ## Author: Phanx
