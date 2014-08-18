@@ -1,13 +1,9 @@
 --[[--------------------------------------------------------------------
 	PetBattleAutoForfeit
-	A World of Warcraft user interface addon
-	Copyright (c) 2012-2014 Phanx
-
-	This addon is freely available, and its source code freely viewable,
-	but it is not "open source software" and you may not distribute it,
-	with or without modifications, without permission from its author.
-
+	Copyright (c) 2012-2014 Phanx. All rights reserved.
 	See the included README and LICENSE files for more information!
+	http://www.wowinterface.com/downloads/info13993-oUF_Phanx.html
+	http://www.curse.com/addons/wow/ouf-phanx
 ----------------------------------------------------------------------]]
 
 local ADDON, private = ...
