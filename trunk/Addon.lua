@@ -11,6 +11,12 @@ local L = private.L
 
 ------------------------------------------------------------------------
 
+PBAF_ENABLE = true
+PBAF_MIN_QUALITY = 3 -- 1: poor, 2: common, 3: uncommon, 4: rare | shifted +1 vs values from GetItemInfo and in ITEM_QUALITY_COLORS
+PBAF_MIN_LEVEL_DIFF = 3
+
+------------------------------------------------------------------------
+
 local f = CreateFrame("Button", ADDON, UIParent)
 f:SetAllPoints(true)
 f:SetFrameStrata("FULLSCREEN_DIALOG")
@@ -39,7 +45,7 @@ end)
 
 ------------------------------------------------------------------------
 
-local PetJournal
+local PetJournal = LibStub("LibPetJournal-2.0")
 
 local function IsUpgrade(i)
 	local species = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
@@ -78,10 +84,6 @@ end
 
 f:RegisterEvent("PET_BATTLE_OPENING_START")
 f:SetScript("OnEvent", function(self, event, name)
-	if not PetJournal then
-		PetJournal = LibStub("LibPetJournal-2.0")
-	end
-
 	if PBAF_ENABLE and C_PetBattles.IsWildBattle() then
 		for i = 1, C_PetBattles.GetNumPets(LE_BATTLE_PET_ENEMY) do
 			if IsUpgrade(i) then
@@ -101,15 +103,14 @@ PetBattleFrame.BottomFrame.ForfeitButton:SetScript("OnClick", function(...)
 end)
 
 hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(this)
-	if not PetJournal then
-		PetJournal = LibStub("LibPetJournal-2.0")
-	end
 	if not this.UpgradeIcon then
-		local layer, level = this.Icon:GetDrawLayer()
-		local UpgradeIcon = this:CreateTexture(nil, layer, nil, level + 1)
+		local UpgradeIcon = this:CreateTexture(nil, "ARTWORK", nil, 3)
 		UpgradeIcon:SetTexture("Interface\\ContainerFrame\\UI-Icon-QuestBang")
 		UpgradeIcon:SetAllPoints(this.Icon)
 		this.UpgradeIcon = UpgradeIcon
+		if this.BorderAlive then
+			this.BorderAlive:SetDrawLayer("ARTWORK", 4)
+		end
 	end
 	local owner, i = this.petOwner, this.petIndex
 	if owner == LE_BATTLE_PET_ENEMY and i and i <= C_PetBattles.GetNumPets(owner) and IsUpgrade(i) then
@@ -118,9 +119,3 @@ hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(this)
 		this.UpgradeIcon:Hide()
 	end
 end)
-
-------------------------------------------------------------------------
-
-PBAF_ENABLE = true
-PBAF_MIN_QUALITY = 3 -- 1: poor, 2: common, 3: uncommon, 4: rare | shifted +1 vs values from GetItemInfo and in ITEM_QUALITY_COLORS
-PBAF_MIN_LEVEL_DIFF = 3
