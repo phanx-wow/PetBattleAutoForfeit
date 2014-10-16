@@ -3,7 +3,7 @@
 
 ## Title: PetBattleAutoForfeit
 ## Notes: Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
-## Notes-deDE: Schlägt für die sofortige Aufgeben vor, wenn ein Haustierkampf ohne verfügbare Verbesserungen beginnt.
+## Notes-deDE: Schlägt das sofortige Aufgeben vor, wenn ein Haustierkampf ohne verfügbare Verbesserungen beginnt.
 ## Notes-esES: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-esMX: Sugiere a abandonar inmediatamente al entrar en un duelo de mascotas sin mejoras disponibles.
 ## Notes-frFR: Propose de déclarer forfait immédiatement lorsque vous entrez dans un combat de mascottes où il n'y a pas d'améliorations disponibles.
