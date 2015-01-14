@@ -50,8 +50,8 @@ local PetJournal = LibStub("LibPetJournal-2.0")
 
 local function IsUpgrade(i)
 	local species = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
-	local name, _, _, _, _, _, wild = C_PetJournal.GetPetInfoBySpeciesID(species)
-	if not wild then return end
+	local name, _, _, _, _, _, wild, _, _, _, obtainable = C_PetJournal.GetPetInfoBySpeciesID(species)
+	if not wild or not obtainable then return end
 
 	local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
 	if quality < PBAF_MIN_QUALITY then return end
