@@ -1,3 +1,7 @@
+### Version 6.0.3.10
+
+* Improved handling of unobtainable wild pets
+
 ### Version 6.0.2.32
 
 * Updated for WoW 6.0
