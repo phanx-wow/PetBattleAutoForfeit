@@ -46,18 +46,18 @@ end)
 
 ------------------------------------------------------------------------
 
-local PetJournal = LibStub("LibPetJournal-2.0")
+local LibPetJournal = LibStub("LibPetJournal-2.0")
 
 local function IsUpgrade(i)
 	local species = C_PetBattles.GetPetSpeciesID(LE_BATTLE_PET_ENEMY, i)
 	local name, _, _, _, _, _, wild, _, _, _, obtainable = C_PetJournal.GetPetInfoBySpeciesID(species)
-	if not wild or not obtainable then return end
+	if not wild or not obtainable then return false end
 
 	local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
 	if quality < PBAF_MIN_QUALITY then return end
 
 	local bestQuality, bestLevel = 0, 0
-	for _, petID in PetJournal:IteratePetIDs() do
+	for _, petID in LibPetJournal:IteratePetIDs() do
 		local petSpecies, _, petLevel = C_PetJournal.GetPetInfoByPetID(petID)
 		if petSpecies == species then
 			local _, _, _, _, petQuality = C_PetJournal.GetPetStats(petID)
@@ -84,10 +84,10 @@ local function IsUpgrade(i)
 end
 
 f:RegisterEvent("PET_BATTLE_OPENING_START")
-f:SetScript("OnEvent", function(self, event, name)
+f:SetScript("OnEvent", function(self, event)
 	if PBAF_ENABLE and C_PetBattles.IsWildBattle() then
 		for i = 1, C_PetBattles.GetNumPets(LE_BATTLE_PET_ENEMY) do
-			if IsUpgrade(i) then
+			if IsUpgrade(i) ~= nil then -- don't prompt vs non-capturable NPCs (IsUpgrade == false)
 				return
 			end
 		end
@@ -103,20 +103,20 @@ PetBattleFrame.BottomFrame.ForfeitButton:SetScript("OnClick", function(...)
 	end
 end)
 
-hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(this)
-	if not this.UpgradeIcon then
-		local UpgradeIcon = this:CreateTexture(nil, "ARTWORK", nil, 3)
+hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(self)
+	if not self.UpgradeIcon then
+		local UpgradeIcon = self:CreateTexture(nil, "ARTWORK", nil, 3)
 		UpgradeIcon:SetTexture("Interface\\ContainerFrame\\UI-Icon-QuestBang")
-		UpgradeIcon:SetAllPoints(this.Icon)
-		this.UpgradeIcon = UpgradeIcon
-		if this.BorderAlive then
-			this.BorderAlive:SetDrawLayer("ARTWORK", 4)
+		UpgradeIcon:SetAllPoints(self.Icon)
+		self.UpgradeIcon = UpgradeIcon
+		if self.BorderAlive then
+			self.BorderAlive:SetDrawLayer("ARTWORK", 4)
 		end
 	end
-	local owner, i = this.petOwner, this.petIndex
-	if owner == LE_BATTLE_PET_ENEMY and i and i <= C_PetBattles.GetNumPets(owner) and IsUpgrade(i) then
-		this.UpgradeIcon:Show()
+	local owner, i = self.petOwner, self.petIndex
+	if i and owner == LE_BATTLE_PET_ENEMY and i <= C_PetBattles.GetNumPets(owner) and IsUpgrade(i) then
+		self.UpgradeIcon:Show()
 	else
-		this.UpgradeIcon:Hide()
+		self.UpgradeIcon:Hide()
 	end
 end)
