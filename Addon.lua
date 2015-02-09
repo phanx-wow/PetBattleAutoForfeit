@@ -12,9 +12,12 @@ local L = private.L
 
 ------------------------------------------------------------------------
 
-PBAF_ENABLE = true
-PBAF_MIN_QUALITY = 3 -- 1: poor, 2: common, 3: uncommon, 4: rare | shifted +1 vs values from GetItemInfo and in ITEM_QUALITY_COLORS
-PBAF_MIN_LEVEL_DIFF = 3
+local db
+PetBattleAutoForfeitDB = {
+	enable = true,
+	minLevelGain = 3,
+	minQuality = 3, -- 1: poor, 2: common, 3: uncommon, 4: rare | shifted +1 vs values from GetItemInfo and in ITEM_QUALITY_COLORS
+}
 
 ------------------------------------------------------------------------
 
@@ -54,7 +57,7 @@ local function IsUpgrade(i)
 	if not wild or not obtainable then return false end
 
 	local quality = C_PetBattles.GetBreedQuality(LE_BATTLE_PET_ENEMY, i)
-	if quality < PBAF_MIN_QUALITY then return end
+	if quality < db.minQuality then return end
 
 	local bestQuality, bestLevel = 0, 0
 	for _, petID in LibPetJournal:IteratePetIDs() do
@@ -77,15 +80,33 @@ local function IsUpgrade(i)
 		elseif level >= 16 then
 			level = level - 1
 		end
-		if (level - PBAF_MIN_LEVEL_DIFF) > bestLevel then
+		if (level - db.minLevelGain) > bestLevel then
 			return true
 		end
 	end
 end
 
+f:RegisterEvent("PLAYER_LOGIN")
 f:RegisterEvent("PET_BATTLE_OPENING_START")
 f:SetScript("OnEvent", function(self, event)
-	if PBAF_ENABLE and C_PetBattles.IsWildBattle() then
+	if not db then
+		db = PetBattleAutoForfeitDB
+		self:UnregisterEvent("PLAYER_LOGIN")
+		-- Upgrade old settings
+		if PBAF_ENABLE ~= nil then
+			PetBattleAutoForfeitDB.enable = PBAF_ENABLE
+			PBAF_ENABLE = nil
+		end
+		if PBAF_MIN_LEVEL_DIFF then
+			PetBattleAutoForfeitDB.minLevelGain = PBAF_MIN_LEVEL_DIFF
+			PBAF_MIN_LEVEL_DIFF = nil
+		end
+		if PBAF_MIN_QUALITY then
+			PetBattleAutoForfeitDB.minQuality = PBAF_MIN_QUALITY
+			PBAF_MIN_QUALITY = nil
+		end
+	end
+	if db.enable and C_PetBattles.IsWildBattle() then
 		for i = 1, C_PetBattles.GetNumPets(LE_BATTLE_PET_ENEMY) do
 			if IsUpgrade(i) ~= nil then -- don't prompt vs non-capturable NPCs (IsUpgrade == false)
 				return

@@ -16,7 +16,7 @@
 ## X-Website: https://github.com/Phanx/PetBattleAutoForfeit
 
 ## OptionalDependencies: LibPetJournal-2.0
-## SavedVariables: PBAF_ENABLE, PBAF_MIN_QUALITY, PBAF_MIN_LEVEL_DIFF
+## SavedVariables: PetBattleAutoForfeitDB
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua

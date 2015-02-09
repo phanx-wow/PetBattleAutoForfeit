@@ -37,7 +37,7 @@ options:SetScript("OnShow", function(options)
 	enable:SetScript("OnClick", function(self)
 		local checked = not not self:GetChecked()
 		PlaySound(checked and "igMainMenuOptionCheckBoxOn" or "igMainmenuOptionCheckBoxOff")
-		PBAF_ENABLE = checked
+		PetBattleAutoForfeitDB.enable = checked
 	end)
 
 	--------------------------------
@@ -66,7 +66,7 @@ options:SetScript("OnShow", function(options)
 	quality:SetScript("OnValueChanged", function(self, value)
 		value = floor(value + 0.5)
 		self.value:SetFormattedText("%s%s|r", ITEM_QUALITY_COLORS[value-1].hex, _G["BATTLE_PET_BREED_QUALITY"..value])
-		PBAF_MIN_QUALITY = value
+		PetBattleAutoForfeitDB.minQuality = value
 	end)
 
 	--------------------------------
@@ -95,7 +95,7 @@ options:SetScript("OnShow", function(options)
 	level:SetScript("OnValueChanged", function(self, value)
 		value = floor(value + 0.5)
 		self.value:SetFormattedText("+%d", value)
-		PBAF_MIN_LEVEL_DIFF = value
+		PetBattleAutoForfeitDB.minLevelGain = value
 	end)
 
 	--------------------------------
@@ -103,11 +103,13 @@ options:SetScript("OnShow", function(options)
 	function options:refresh()
 		enable:SetChecked(PBAF_ENABLE)
 
-		quality:SetValue(PBAF_MIN_QUALITY)
-		quality.value:SetFormattedText("%s%s|r", ITEM_QUALITY_COLORS[PBAF_MIN_QUALITY-1].hex, _G["BATTLE_PET_BREED_QUALITY"..PBAF_MIN_QUALITY])
+		local q = PetBattleAutoForfeitDB.minQuality
+		quality:SetValue(q)
+		quality.value:SetFormattedText("%s%s|r", ITEM_QUALITY_COLORS[q-1].hex, _G["BATTLE_PET_BREED_QUALITY"..q])
 
-		level:SetValue(PBAF_MIN_LEVEL_DIFF)
-		level.value:SetFormattedText("+%d", PBAF_MIN_LEVEL_DIFF)
+		local d = PetBattleAutoForfeitDB.minLevelGain
+		level:SetValue(d)
+		level.value:SetFormattedText("+%d", d)
 	end
 
 	options:refresh()
