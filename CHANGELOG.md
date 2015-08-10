@@ -1,3 +1,9 @@
+### Version 6.2.0.11
+
+* Updated for WoW 6.2
+* Fixed upgrade icons sometimes showing in PVP pet battles
+* Fixed the initial state of the "Enable" option checkbox
+
 ### Version 6.1.0.10
 
 * Updated for WoW 6.1

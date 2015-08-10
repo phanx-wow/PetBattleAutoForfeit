@@ -134,8 +134,8 @@ hooksecurefunc("PetBattleUnitFrame_UpdateDisplay", function(self)
 			self.BorderAlive:SetDrawLayer("ARTWORK", 4)
 		end
 	end
-	local owner, i = self.petOwner, self.petIndex
-	if i and owner == LE_BATTLE_PET_ENEMY and i <= C_PetBattles.GetNumPets(owner) and IsUpgrade(i) then
+	local owner, i, wild = self.petOwner, self.petIndex, C_PetBattles.IsWildBattle()
+	if i and wild and owner == LE_BATTLE_PET_ENEMY and i <= C_PetBattles.GetNumPets(owner) and IsUpgrade(i) then
 		self.UpgradeIcon:Show()
 	else
 		self.UpgradeIcon:Hide()
