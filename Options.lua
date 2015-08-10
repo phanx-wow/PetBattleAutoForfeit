@@ -101,7 +101,7 @@ options:SetScript("OnShow", function(options)
 	--------------------------------
 
 	function options:refresh()
-		enable:SetChecked(PBAF_ENABLE)
+		enable:SetChecked(PetBattleAutoForfeitDB.enable)
 
 		local q = PetBattleAutoForfeitDB.minQuality
 		quality:SetValue(q)
