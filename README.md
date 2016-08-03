@@ -8,5 +8,5 @@ PetBattleAutoForfeit
 **PT** — Sugere que desistir imediatamente ao entrar numa batalha de mascote sem melhorias disponíveis.  
 **RU** — Подсказка для немедленного отступления, когда начинается битва питомцев и нет доступных улучшений.
 
-* [Download from Curse](http://www.curse.com/addons/wow/petbattleautoforfeit)
+* [Download from Curse](https://mods.curse.com/addons/wow/petbattleautoforfeit)
 * [Download from WoWInterface](http://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html)

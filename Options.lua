@@ -3,7 +3,7 @@
 	Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
 	Copyright (c) 2012-2016 Phanx <addons@phanx.net>. All rights reserved.
 	http://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
-	http://www.curse.com/addons/wow/petbattleautoforfeit
+	https://mods.curse.com/addons/wow/petbattleautoforfeit
 	https://github.com/Phanx/PetBattleAutoForfeit
 ----------------------------------------------------------------------]]
 
@@ -115,10 +115,6 @@ options:SetScript("OnShow", function(options)
 	options:refresh()
 	options:SetScript("OnShow", nil)
 end)
-
-if LibStub and LibStub("LibAboutPanel", true) then
-	options.about = LibStub("LibAboutPanel").new(options.name, ADDON)
-end
 
 SLASH_PBAF1 = "/pbaf"
 SlashCmdList.PBAF = function(cmd)

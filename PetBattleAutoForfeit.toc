@@ -14,6 +14,8 @@
 ## X-Email: addons@phanx.net
 ## X-Copyright: Copyright (c) 2012-2016 Phanx. All rights reserved.
 ## X-Website: https://github.com/Phanx/PetBattleAutoForfeit
+## X-Curse-Project-ID: petbattleautoforfeit
+## X-WoWI-ID: 21978
 
 ## OptionalDependencies: LibPetJournal-2.0
 ## SavedVariables: PetBattleAutoForfeitDB
