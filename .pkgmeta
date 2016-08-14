@@ -2,6 +2,12 @@ package-as: PetBattleAutoForfeit
 
 enable-nolib-creation: no
 
+ignore:
+   - CHANGELOG.md
+   - README.md
+   - LibStub.toc
+   - CallbackHandler-1.0.xml
+
 manual-changelog:
    filename: CHANGELOG.md
    markup-type: markdown
