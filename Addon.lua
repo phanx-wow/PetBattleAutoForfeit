@@ -2,9 +2,9 @@
 	PetBattleAutoForfeit
 	Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
 	Copyright (c) 2012-2016 Phanx <addons@phanx.net>. All rights reserved.
-	http://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
-	https://mods.curse.com/addons/wow/petbattleautoforfeit
 	https://github.com/Phanx/PetBattleAutoForfeit
+	https://mods.curse.com/addons/wow/petbattleautoforfeit
+	https://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
 ----------------------------------------------------------------------]]
 
 local ADDON, private = ...
@@ -29,7 +29,7 @@ f:Hide()
 
 f.bg = f:CreateTexture(nil, "BACKGROUND")
 f.bg:SetAllPoints(true)
-f.bg:SetTexture(0, 0, 0, 0.5)
+f.bg:SetColorTexture(0, 0, 0, 0.5)
 
 f.text1 = f:CreateFontString(nil, "OVERLAY", "SubZoneTextFont")
 f.text1:SetPoint("BOTTOM", f, "CENTER", 0, 24)
