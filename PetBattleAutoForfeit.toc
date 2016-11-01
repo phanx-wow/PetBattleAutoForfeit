@@ -15,7 +15,7 @@
 ## X-Copyright: Copyright (c) 2012-2016 Phanx. All rights reserved.
 ## X-Website: https://github.com/Phanx/PetBattleAutoForfeit
 ## X-Curse-Project-ID: petbattleautoforfeit
-## X-WoWI-ID: 21978
+## X-WoWI-ID: 21998
 
 ## OptionalDependencies: LibPetJournal-2.0
 ## SavedVariables: PetBattleAutoForfeitDB

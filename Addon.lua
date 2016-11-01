@@ -4,7 +4,7 @@
 	Copyright (c) 2012-2016 Phanx <addons@phanx.net>. All rights reserved.
 	https://github.com/Phanx/PetBattleAutoForfeit
 	https://mods.curse.com/addons/wow/petbattleautoforfeit
-	https://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html
+	https://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit.html
 ----------------------------------------------------------------------]]
 
 local ADDON, private = ...

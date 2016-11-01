@@ -9,4 +9,4 @@ PetBattleAutoForfeit
 **RU** — Подсказка для немедленного отступления, когда начинается битва питомцев и нет доступных улучшений.
 
 * [Download from Curse](https://mods.curse.com/addons/wow/petbattleautoforfeit)
-* [Download from WoWInterface](https://www.wowinterface.com/downloads/info21978-PetBattleAutoForfeit.html)
+* [Download from WoWInterface](https://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit.html)
