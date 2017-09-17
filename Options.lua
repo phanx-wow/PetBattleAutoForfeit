@@ -1,7 +1,7 @@
 --[[--------------------------------------------------------------------
 	PetBattleAutoForfeit
 	Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
-	Copyright (c) 2012-2016 Phanx <addons@phanx.net>. All rights reserved.
+	Copyright (c) 2012-2017 Phanx <addons@phanx.net>. All rights reserved.
 	http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit.html
 	https://mods.curse.com/addons/wow/petbattleautoforfeit
 	https://github.com/Phanx/PetBattleAutoForfeit
