@@ -1,3 +1,7 @@
+### Version 7.3.5.0
+
+* Fixed a PlaySound error in the options panel
+
 ### Version 7.3.0.0
 
 * Updated for WoW 7.3

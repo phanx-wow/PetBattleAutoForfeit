@@ -1,9 +1,9 @@
 --[[--------------------------------------------------------------------
 	PetBattleAutoForfeit
 	Prompts for immediate forfeit when you enter a pet battle with no available upgrades.
-	Copyright (c) 2012-2017 Phanx <addons@phanx.net>. All rights reserved.
-	http://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit.html
-	https://mods.curse.com/addons/wow/petbattleautoforfeit
+	Copyright (c) 2012-2018 Phanx <addons@phanx.net>. All rights reserved.
+	https://www.wowinterface.com/downloads/info21998-PetBattleAutoForfeit.html
+	https://www.curseforge.com/wow/addons/petbattleautoforfeit
 	https://github.com/Phanx/PetBattleAutoForfeit
 ----------------------------------------------------------------------]]
 
@@ -36,7 +36,7 @@ options:SetScript("OnShow", function(options)
 	enable.tooltipText = L.Enable_Tooltip
 	enable:SetScript("OnClick", function(self)
 		local checked = not not self:GetChecked()
-		PlaySound(checked and "igMainMenuOptionCheckBoxOn" or "igMainmenuOptionCheckBoxOff")
+		PlaySound(checked and SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON or SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF)
 		PetBattleAutoForfeitDB.enable = checked
 	end)
 
